@@ -1,13 +1,13 @@
 #include <stdio.h>
 // Include project description
-char key = 3;
+char key = 0;
 //Function definitions need comments too
 // Encryption for Caesar cipher should take an encryption key between 0-25 
 //(distance of shift) and an input message, then produce an encrypted result.
 char encryptCaesar (char e);
 // Decryption for Caesar cipher should take an encrypted message and decrypt it by testing
 // keys and checking for intelligble words
-/*void decryptCaesar (char *str);
+char decryptCaesar (char d);
 
 void encryptSub (char *str);
 
@@ -36,11 +36,14 @@ char encryptCaesar (char e){
                 e = e - 32;
             }
             
-            if(e > 65 + key && e <= 90){
-                e = 65 + (26 - (e - 65) - key);
-            } else if (e >= 65 && e <= 65 + key) {
+            if(e + key > 90){
+                e = 65 + (((e - 65) - 26) + key); //just don't touch it
+            } else if (65 <= e + key) {
                 e = e + key;
             }
-            return e;
-            
+            return e;       
+}
+
+char decryptCaesar (char d){
+    
 }
