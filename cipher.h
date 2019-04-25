@@ -1,38 +1,7 @@
-#include <stdio.h>
-#include <string.h>
-#include "cipher.h"
-// Include project description
-//char key = 7;
+#ifndef VARIABLE
+#define VARIABLE
+char key = 7;
 
-// Encryption for Caesar cipher takes an encryption key between 0-25 
-//(distance of shift) and an input message, then produce an encrypted result.
-char encryptCaesar (char e);
-
-// This decryption for Caesar cipher should take an encrypted message and decrypt it 
-// using the supplied key
-char decryptCaesar (char e);
-
-char encryptSub (char e);
-
-char decryptSub(char e);
-
-int main() {
-    FILE *input;
-    FILE *output;
-    
-    input = fopen("input.txt", "r");
-    output = fopen("output.txt", "w");
-    
-    while (feof(input) == 0){
-            char e, f;
-            fscanf(input, "%c", &e);
-            f = decryptSub(e);  
-            fprintf(output, "%c", f);
-}
-
-    return 0;
-}
-/*
 char encryptCaesar (char e){
    
             if(e >= 97 && e <= 122){ //make letter a capital
@@ -90,4 +59,5 @@ char decryptSub(char e){
             }
     return e;
 }
-*/
+
+#endif
