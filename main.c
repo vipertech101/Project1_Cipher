@@ -1,33 +1,31 @@
 #include <stdio.h>
-#include <string.h>
-#include "cipher.h"
-// Include project description
+#include <string.h> //probably not necessary, I don't even think it's being used
+#include "cipher.h" //just my own header file because why not practice having somewhere else to put all the function definitions
+
+// This program serves to read a char input from a file and then either encrypt or decrypt this input, writing a char output to another file
+// It is capable of encrypting using a rotation (Caesar) cipher or a substitution cipher
+// input.txt as the name implies is a text file in which the cipher input should be written prior to running the program
+// output.txt is the text file where the program will write 
+
 //char key = 7;
-
-// Encryption for Caesar cipher takes an encryption key between 0-25 
-//(distance of shift) and an input message, then produce an encrypted result.
-char encryptCaesar (char e);
-
-// This decryption for Caesar cipher should take an encrypted message and decrypt it 
-// using the supplied key
-char decryptCaesar (char e);
-
-char encryptSub (char e);
-
-char decryptSub(char e);
+//char encryptCaesar (char e);
+//char decryptCaesar (char e);
+//char encryptSub (char e);
+//char decryptSub(char e);
 
 int main() {
-    FILE *input;
+    FILE *input; //specifies as a unique file location
     FILE *output;
     
-    input = fopen("input.txt", "r");
-    output = fopen("output.txt", "w");
+    input = fopen("input.txt", "r"); //initialises the file input.txt for reading
+    output = fopen("output.txt", "w"); //initialises the file output.txt for writing
     
-    while (feof(input) == 0){
+
+    while (feof(input) == 0){ // until the end of the file...
             char e, f;
-            fscanf(input, "%c", &e);
-            f = decryptSub(e);  
-            fprintf(output, "%c", f);
+            fscanf(input, "%c", &e); // reads character from input file and stores in e
+            f = decryptSub(e);  // sends character to function for processing
+            fprintf(output, "%c", f); //prints processed character to ouput file
 }
 
     return 0;

@@ -2,6 +2,8 @@
 #define VARIABLE
 char key = 7;
 
+// Encryption for Caesar cipher takes an encryption key between 0-25 
+//(distance of shift) and an input message, then produce an encrypted result.
 char encryptCaesar (char e){
    
             if(e >= 97 && e <= 122){ //make letter a capital
@@ -16,7 +18,8 @@ char encryptCaesar (char e){
             }
             return e;       
 }
-
+// This decryption for Caesar cipher should take an encrypted message and decrypt it 
+// using the supplied key
 char decryptCaesar (char e){
             if(e >= 97 && e <= 122){ //make letter a capital
                 e = e - 32;
