@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 // Include project description
 char key = 7;
 
@@ -24,7 +25,7 @@ int main() {
     while (feof(input) == 0){
             char e, f;
             fscanf(input, "%c", &e);
-            f = decryptCaesar(e);  
+            f = decryptSub(e);  
             fprintf(output, "%c", f);
 }
 
@@ -47,7 +48,7 @@ char encryptCaesar (char e){
 }
 
 char decryptCaesar (char e){
-    if(e >= 97 && e <= 122){ //make letter a capital
+            if(e >= 97 && e <= 122){ //make letter a capital
                 e = e - 32;
             }
             
@@ -59,10 +60,32 @@ char decryptCaesar (char e){
             return e; 
 }
 
-char encryptSub (char s){
-    return 0;
+char encryptSub (char e){
+            if(e >= 97 && e <= 122){ //make letter a capital
+                e = e - 32;
+            }
+            char alpha[] = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90};
+            char subkey[] = {90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65};
+            for (int i = 0 ; i < 26 ; i++) {
+                if (alpha[i] == e) {
+                    e = subkey[i];
+                    break;
+                }
+            }
+    return e;
 }
 
-char decryptSub(char f){
-    return 0;
+char decryptSub(char e){
+            if(e >= 97 && e <= 122){ //make letter a capital
+                e = e - 32;
+            }
+            char alpha[] = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90};
+            char subkey[] = {90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65};
+            for (int i = 0 ; i < 26 ; i++) {
+                if (subkey[i] == e) {
+                    e = alpha[i];
+                    break;
+                }
+            }
+    return e;
 }
