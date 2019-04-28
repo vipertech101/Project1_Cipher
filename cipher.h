@@ -1,9 +1,11 @@
 #ifndef VARIABLE
 #define VARIABLE
-char key = 7;
+char key = 7; //hardcoded rotation cipher key, number == how many units you want each alphabet letter shifted
 
 // Encryption for Caesar cipher takes an encryption key between 0-25 
 //(distance of shift) and an input message, then produce an encrypted result.
+// The char e passed to this function and to decryptCaesar is each character in the input file being ciphered, the e returned is the ciphered file to be printed to the output file
+// These do not mess with any punctuation/ non-letter characters
 char encryptCaesar (char e){
    
             if(e >= 97 && e <= 122){ //make letter a capital
@@ -19,7 +21,8 @@ char encryptCaesar (char e){
             return e;       
 }
 // This decryption for Caesar cipher should take an encrypted message and decrypt it 
-// using the supplied key
+// using the supplied key. char e fed to function is character from input file, returned e is ciphered character to print to output file
+// Does not edit punctuation/ non-letter characters
 char decryptCaesar (char e){
             if(e >= 97 && e <= 122){ //make letter a capital
                 e = e - 32;
@@ -32,7 +35,9 @@ char decryptCaesar (char e){
             }
             return e; 
 }
-
+//takes each character from input file, first array is organised alphabet using ascii decimals, second array is cipher key using ascii decimals
+//checks each position in first array until it is equal to the input character, then converts it to the corresponding character in the key
+//if the fed character is not a letter, it is not edited
 char encryptSub (char e){
             if(e >= 97 && e <= 122){ //make letter a capital
                 e = e - 32;
@@ -47,7 +52,8 @@ char encryptSub (char e){
             }
     return e;
 }
-
+//checks each character for position in sub key, then converts to corresponding character in alphabet, simply reversing the encryption process
+//non letter characters are not edited
 char decryptSub(char e){
             if(e >= 97 && e <= 122){ //make letter a capital
                 e = e - 32;

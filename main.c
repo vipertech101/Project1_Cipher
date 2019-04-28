@@ -7,7 +7,7 @@
 // input.txt as the name implies is a text file in which the cipher input should be written prior to running the program
 // output.txt is the text file where the program will write 
 
-//char key = 7;
+//char key = 7; //this is rotation cipher key, must be hardcoded initially
 //char encryptCaesar (char e);
 //char decryptCaesar (char e);
 //char encryptSub (char e);
