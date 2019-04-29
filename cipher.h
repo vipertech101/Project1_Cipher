@@ -1,12 +1,12 @@
 #ifndef VARIABLE
 #define VARIABLE
-char key = 7; //hardcoded rotation cipher key, number == how many units you want each alphabet letter shifted
+//char key = 7; //hardcoded rotation cipher key, number == how many units you want each alphabet letter shifted
 
 // Encryption for Caesar cipher takes an encryption key between 0-25 
 //(distance of shift) and an input message, then produce an encrypted result.
 // The char e passed to this function and to decryptCaesar is each character in the input file being ciphered, the e returned is the ciphered file to be printed to the output file
 // These do not mess with any punctuation/ non-letter characters
-char encryptCaesar (char e){
+char encryptCaesar (char e, int key){
    if ((e >= 97 && e <= 122)||(e >= 65 && e <= 90)){
             if(e >= 97 && e <= 122){ //make letter a capital
                 e = e - 32;
@@ -25,7 +25,7 @@ char encryptCaesar (char e){
 // This decryption for Caesar cipher should take an encrypted message and decrypt it 
 // using the supplied key. char e fed to function is character from input file, returned e is ciphered character to print to output file
 // Does not edit punctuation/ non-letter characters
-char decryptCaesar (char e){
+char decryptCaesar (char e, int key){
     if ((e >= 97 && e <= 122)||(e >= 65 && e <= 90)){
             if(e >= 97 && e <= 122){ //make letter a capital
                 e = e - 32;
@@ -77,13 +77,19 @@ char decryptSub(char e){
     return e;
 }
 
-/* char keylessRot(char e){
-    int tKey = 0;
-    if (message makes sense) {
-        return stuff;
-    } else {
-        tKey++;
-    }
-} */
+ char keylessRot(char e, int tKey){
+    if ((e >= 97 && e <= 122)||(e >= 65 && e <= 90)){
+            if(e >= 97 && e <= 122){ //make letter a capital
+                e = e - 32;
+            }
+            
+            if(e - tKey < 65 && e >= 65){ //overflow
+                e = e - tKey + 26;
+            } else if (e - tKey >= 65) {
+                e = e - tKey;
+            }
+        }
+            return e; 
+}
 
 #endif

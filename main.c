@@ -18,7 +18,7 @@ int main() {
     FILE *output;
     
     input = fopen("input.txt", "r"); //initialises the file input.txt for reading
-    output = fopen("output.txt", "w"); //initialises the file output.txt for writing
+    // output = fopen("output.txt", "w"); //initialises the file output.txt for writing
     
     printf("Welcome to the Cipher Program\n");
     printf("For Rotation cipher encryption, type 1\n");
@@ -27,28 +27,48 @@ int main() {
     printf("For Substitution Cipher encryption, type 4\n");
     printf("For Substitution Cipher decryption, type 5\n");
     printf("Selection: ");
-    int us = 0;
+    int us = 0; //user selection number, tells program which function to call
     scanf("%d", &us);
     
     if(us == 1){
+        output = fopen("output.txt", "w");
+        printf("Please enter encryption key: ");
+        int key = 0;
+        scanf("%d", &key);
         while (feof(input) == 0){ // until the end of the file...
             char e, f;
             fscanf(input, "%c", &e); // reads character from input file and stores in e
-            f = encryptCaesar(e);  // sends character to function for processing
+            f = encryptCaesar(e, key);  // sends character to function for processing
             fprintf(output, "%c", f); //prints processed character to ouput file
             printf("%c", f);
         }
     } else if (us == 2){
+        output = fopen("output.txt", "w");
+        printf("Please enter encryption key: ");
+        int key = 0;
+        scanf("%d", &key);
         while (feof(input) == 0){ // until the end of the file...
             char e, f;
             fscanf(input, "%c", &e); // reads character from input file and stores in e
-            f = decryptCaesar(e);  // sends character to function for processing
+            f = decryptCaesar(e, key);  // sends character to function for processing
             fprintf(output, "%c", f); //prints processed character to ouput file
             printf("%c", f);
         }
     } else if (us == 3){
-        printf("does not exist yet");
+        output = fopen("output.txt", "a");
+        int tKey = 0;
+        while(tKey < 26){
+            while (feof(input) == 0){ // until the end of the file...
+            char e, f;
+            fscanf(input, "%c", &e); // reads character from input file and stores in e
+            f = keylessRot(e, tKey);  // sends character to function for processing
+            fprintf(output, "%c", f); //prints processed character to ouput file
+            printf("%c", f);
+            }
+        tKey++;
+        }
     } else if (us == 4){
+        output = fopen("output.txt", "w");
         while (feof(input) == 0){ // until the end of the file...
             char e, f;
             fscanf(input, "%c", &e); // reads character from input file and stores in e
@@ -57,6 +77,7 @@ int main() {
             printf("%c", f);
         }
     } else if (us == 5){
+        output = fopen("output.txt", "w");
         while (feof(input) == 0){ // until the end of the file...
             char e, f;
             fscanf(input, "%c", &e); // reads character from input file and stores in e
