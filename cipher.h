@@ -18,8 +18,9 @@ char encryptCaesar (char e){
             } else if (65 <= e + key) {
                 e = e + key;
             }
-            return e; 
         }
+            return e; 
+        
 }
 // This decryption for Caesar cipher should take an encrypted message and decrypt it 
 // using the supplied key. char e fed to function is character from input file, returned e is ciphered character to print to output file
@@ -35,8 +36,8 @@ char decryptCaesar (char e){
             } else if (e - key >= 65) {
                 e = e - key;
             }
-            return e; 
         }
+            return e; 
 }
 //takes each character from input file, first array is organised alphabet using ascii decimals, second array is cipher key using ascii decimals
 //checks each position in first array until it is equal to the input character, then converts it to the corresponding character in the key
@@ -54,8 +55,8 @@ char encryptSub (char e){
                     break;
                 }
             }
+        }
     return e;
-    }
 }
 //checks each character for position in sub key, then converts to corresponding character in alphabet, simply reversing the encryption process
 //non letter characters are not edited
@@ -72,8 +73,8 @@ char decryptSub(char e){
                     break;
                 } //that hilarious moment when you realise that this entire function is unnecessary, as it does the exact same thing as the encryption function, so really you just needed to call the encryption function again on an already encrypted message to decrypt
             }
+        }
     return e;
-    }
 }
 
 /* char keylessRot(char e){

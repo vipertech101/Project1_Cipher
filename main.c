@@ -36,6 +36,7 @@ int main() {
             fscanf(input, "%c", &e); // reads character from input file and stores in e
             f = encryptCaesar(e);  // sends character to function for processing
             fprintf(output, "%c", f); //prints processed character to ouput file
+            printf("%c", f);
         }
     } else if (us == 2){
         while (feof(input) == 0){ // until the end of the file...
@@ -43,6 +44,7 @@ int main() {
             fscanf(input, "%c", &e); // reads character from input file and stores in e
             f = decryptCaesar(e);  // sends character to function for processing
             fprintf(output, "%c", f); //prints processed character to ouput file
+            printf("%c", f);
         }
     } else if (us == 3){
         printf("does not exist yet");
@@ -52,6 +54,7 @@ int main() {
             fscanf(input, "%c", &e); // reads character from input file and stores in e
             f = encryptSub(e);  // sends character to function for processing
             fprintf(output, "%c", f); //prints processed character to ouput file
+            printf("%c", f);
         }
     } else if (us == 5){
         while (feof(input) == 0){ // until the end of the file...
@@ -59,6 +62,7 @@ int main() {
             fscanf(input, "%c", &e); // reads character from input file and stores in e
             f = decryptSub(e);  // sends character to function for processing
             fprintf(output, "%c", f); //prints processed character to ouput file
+            printf("%c", f);
         }
     } else {
         printf("Improper selection, please enter a number between 1 and 5");
