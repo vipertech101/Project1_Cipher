@@ -20,13 +20,50 @@ int main() {
     input = fopen("input.txt", "r"); //initialises the file input.txt for reading
     output = fopen("output.txt", "w"); //initialises the file output.txt for writing
     
-
-    while (feof(input) == 0){ // until the end of the file...
+    printf("Welcome to the Cipher Program\n");
+    printf("For Rotation cipher encryption, type 1\n");
+    printf("For Rotation Cipher decryption, type 2\n");
+    printf("For Rotation Cipher decryption without a key, type 3\n");
+    printf("For Substitution Cipher encryption, type 4\n");
+    printf("For Substitution Cipher decryption, type 5\n");
+    printf("Selection: ");
+    int us = 0;
+    scanf("%d", &us);
+    
+    if(us == 1){
+        while (feof(input) == 0){ // until the end of the file...
+            char e, f;
+            fscanf(input, "%c", &e); // reads character from input file and stores in e
+            f = encryptCaesar(e);  // sends character to function for processing
+            fprintf(output, "%c", f); //prints processed character to ouput file
+        }
+    } else if (us == 2){
+        while (feof(input) == 0){ // until the end of the file...
+            char e, f;
+            fscanf(input, "%c", &e); // reads character from input file and stores in e
+            f = decryptCaesar(e);  // sends character to function for processing
+            fprintf(output, "%c", f); //prints processed character to ouput file
+        }
+    } else if (us == 3){
+        printf("does not exist yet");
+    } else if (us == 4){
+        while (feof(input) == 0){ // until the end of the file...
+            char e, f;
+            fscanf(input, "%c", &e); // reads character from input file and stores in e
+            f = encryptSub(e);  // sends character to function for processing
+            fprintf(output, "%c", f); //prints processed character to ouput file
+        }
+    } else if (us == 5){
+        while (feof(input) == 0){ // until the end of the file...
             char e, f;
             fscanf(input, "%c", &e); // reads character from input file and stores in e
             f = decryptSub(e);  // sends character to function for processing
             fprintf(output, "%c", f); //prints processed character to ouput file
-}
+        }
+    } else {
+        printf("Improper selection, please enter a number between 1 and 5");
+    }
+
 
     return 0;
 }
